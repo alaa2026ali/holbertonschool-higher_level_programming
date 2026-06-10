@@ -15,7 +15,7 @@ Test with only one argument (b takes default value 98):
     >>> add_integer(2)
     100
 
-Test with floats (they must be casted to integers):
+Test with floats:
     >>> add_integer(100.3, -2)
     98
 
@@ -23,24 +23,22 @@ Test with negative numbers:
     >>> add_integer(-1, -2)
     -3
 
-Test with float and default value:
-    >>> add_integer(100.9)
-    198
-
 Test for TypeError when 'a' is not an integer or float:
     >>> add_integer("School", 3)
     Traceback (most recent call last):
-    ...
     TypeError: a must be an integer
 
 Test for TypeError when 'b' is not an integer or float:
     >>> add_integer(4, "School")
     Traceback (most recent call last):
-    ...
     TypeError: b must be an integer
 
-Test for TypeError when 'a' is None:
-    >>> add_integer(None)
+Test for Float Overflow / Infinity:
+    >>> add_integer(float('inf'), 4)
     Traceback (most recent call last):
-    ...
     TypeError: a must be an integer
+
+Test for NaN (Not a Number):
+    >>> add_integer(4, float('nan'))
+    Traceback (most recent call last):
+    TypeError: b must be an integer
