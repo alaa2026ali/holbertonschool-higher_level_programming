@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Module that contains the add_integer function."""
-import math
 
 
 def add_integer(a, b=98):
@@ -8,11 +7,11 @@ def add_integer(a, b=98):
 
     Floats are cast to integers before addition.
     """
-    # Reject non-numbers, infinity, or NaN values
-    if type(a) not in [int, float] or math.isinf(a) or math.isnan(a):
+    # Check type, NaN (a != a), and Infinity without imports
+    if type(a) not in [int, float] or a != a or abs(a) == float('inf'):
         raise TypeError("a must be an integer")
 
-    if type(b) not in [int, float] or math.isinf(b) or math.isnan(b):
+    if type(b) not in [int, float] or b != b or abs(b) == float('inf'):
         raise TypeError("b must be an integer")
 
     return int(a) + int(b)
