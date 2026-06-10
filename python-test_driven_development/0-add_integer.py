@@ -9,7 +9,7 @@ def add_integer(a, b=98):
     if not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
     
-    # Check for NaN and Infinity without imports
+    # Handle NaN (a != a) and Infinity/Overflow (abs(a) == float('inf'))
     if a != a or abs(a) == float('inf'):
         raise TypeError("a must be an integer")
     if b != b or abs(b) == float('inf'):
