@@ -1,21 +1,16 @@
 #!/usr/bin/python3
-"""
-This module contains a function that adds two integers.
-
-The function validates input values before adding them.
-"""
+"""Module that contains the add_integer function."""
 
 
 def add_integer(a, b=98):
-    """
-    Add two integers and return the result.
+    """Add two integers and return the result.
 
     Floats are cast to integers before addition.
     """
-    if not isinstance(a, (int, float)):
+    if type(a) not in [int, float]:
         raise TypeError("a must be an integer")
 
-    if not isinstance(b, (int, float)):
+    if type(b) not in [int, float]:
         raise TypeError("b must be an integer")
 
     return int(a) + int(b)
