@@ -3,7 +3,6 @@
 This module provides a function to add two integers.
 It handles type validation, including float overflow and NaN checks.
 """
-import math
 
 
 def add_integer(a, b=98):
