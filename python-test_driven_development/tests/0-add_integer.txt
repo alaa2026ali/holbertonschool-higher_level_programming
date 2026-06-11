@@ -4,42 +4,38 @@ The ``0-add_integer`` module
 Using ``add_integer``
 ---------------------
 
-Import the function:
+Import function:
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Test with normal integers:
+Test normal integers:
     >>> add_integer(1, 2)
     3
 
-Test with only one argument (b takes default value 98):
+Test negative numbers:
+    >>> add_integer(100, -2)
+    98
+
+Test default value of b:
     >>> add_integer(2)
     100
 
-Test with floats (they must be casted to integers):
+Test floats (must be casted to int):
     >>> add_integer(100.3, -2)
     98
 
-Test with negative numbers:
-    >>> add_integer(-1, -2)
-    -3
-
-Test with float and default value:
-    >>> add_integer(100.9)
-    198
-
-Test for TypeError when 'a' is not int/float:
-    >>> add_integer("School", 3)
+Test TypeError for invalid a:
+    >>> add_integer("School", 4)
     Traceback (most recent call last):
     ...
     TypeError: a must be an integer
 
-Test for TypeError when 'b' is not int/float:
+Test TypeError for invalid b:
     >>> add_integer(4, "School")
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
 
-Test for TypeError when 'a' is None:
+Test TypeError for None:
     >>> add_integer(None)
     Traceback (most recent call last):
     ...
