@@ -1,4 +1,4 @@
-The ``0-add_integer_3`` module
+The ``0-add_integer`` module
 ===============================
 
 Using ``add_integer``
@@ -6,7 +6,7 @@ Using ``add_integer``
 
 First, import ``add_integer`` from the module:
 
-    >>> add_integer = __import__('add_integer_3').add_integer
+    >>> add_integer = __import__('0-add_integer').add_integer
 
 Test normal addition with integers:
 
