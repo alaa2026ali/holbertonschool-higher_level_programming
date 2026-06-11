@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 This module provides a function to add two integers.
-It handles type validation, including float overflow and NaN checks.
+It handles type validation, including float overflow and NaN checks
+without importing any modules.
 """
 
 
@@ -19,21 +20,20 @@ def add_integer(a, b=98):
     Returns:
         The addition of a and b as an integer.
     """
-    # Validate 'a' for valid type, NaN, and Infinity (Float overflow)
-    if not isinstance(a, (int, float)) or math.isnan(a) or math.isinf(a):
+    # Validate 'a' (Check type, NaN, and Infinity)
+    if not isinstance(a, (int, float)):
+        raise TypeError("a must be an integer")
+    if a != a or a == float('inf') or a == float('-inf'):
         raise TypeError("a must be an integer")
 
-    # Validate 'b' for valid type, NaN, and Infinity (Float overflow)
-    if not isinstance(b, (int, float)) or math.isnan(b) or math.isinf(b):
+    # Validate 'b' (Check type, NaN, and Infinity)
+    if not isinstance(b, (int, float)):
+        raise TypeError("b must be an integer")
+    if b != b or b == float('inf') or b == float('-inf'):
         raise TypeError("b must be an integer")
 
-    # Cast floats to integers as required by the specifications
+    # Cast floats to integers
     a = int(a)
     b = int(b)
 
     return a + b
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
