@@ -6,7 +6,7 @@ Using ``matrix_divided``
 
 First, import ``matrix_divided`` from the module:
 
-    >>> matrix_divided = __import__('1-matrix_divided').matrix_divided
+    >>> matrix_divided = __import__('matrix_divided_5').matrix_divided
 
 Test normal matrix division with an integer:
 
