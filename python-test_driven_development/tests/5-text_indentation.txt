@@ -1,27 +1,37 @@
->>> text_indentation = __import__('5-text_indentation').text_indentation
+The ``5-text_indentation`` module
+==================================
 
->>> text_indentation("Hello. World")
-Hello.
+Using ``text_indentation``:
+---------------------------
 
-World
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
 
->>> text_indentation("Hi?Yes:Ok")
-Hi?
+Test with standard text containing formatting characters:
+    >>> text_indentation("Hello. World")
+    Hello.
+    <BLANKLINE>
+    World
 
-Yes:
+Test with multiple consecutive target characters and no spaces:
+    >>> text_indentation("Hi?Yes:Ok")
+    Hi?
+    <BLANKLINE>
+    Yes:
+    <BLANKLINE>
+    Ok
 
-Ok
+Test with heavy leading, trailing, and inline spaces:
+    >>> text_indentation(" Hello. World? Python: Test")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+    Python:
+    <BLANKLINE>
+    Test
 
->>> text_indentation("   Hello.   World?   Python:   Test")
-Hello.
-
-World?
-
-Python:
-
-Test
-
->>> text_indentation(123)
-Traceback (most recent call last):
-...
-TypeError: text must be a string
+Test error handling:
+    >>> text_indentation(12345)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
