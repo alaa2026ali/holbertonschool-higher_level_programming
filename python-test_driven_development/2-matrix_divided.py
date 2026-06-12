@@ -1,78 +1,51 @@
 #!/usr/bin/python3
 """
-This module provides a function `matrix_divided` that divides all elements
-of a matrix by a given number, rounding the results to 2 decimal places.
+This module contains a function that divides all elements of a matrix.
 """
 
 
 def matrix_divided(matrix, div):
     """
-    Divides all elements of a matrix by `div`.
+    Divides all elements of a matrix by a given divisor (div).
 
     Args:
-        matrix: A list of lists of integers or floats.
-        div: The number (int or float) to divide the matrix by.
+        matrix (list of lists): A matrix containing integers or floats.
+        div (int/float): The number to divide the matrix elements by.
 
     Raises:
-        TypeError: If matrix is not a list of lists of integers/floats,
-                   if rows are not of equal size, or if div is not a number.
+        TypeError: If matrix is not a list of lists of integers/floats.
+        TypeError: If each row of the matrix does not have the same size.
+        TypeError: If div is not a number (integer or float).
         ZeroDivisionError: If div is equal to 0.
 
     Returns:
-        A new matrix containing the divided values rounded to 2 decimal places.
+        list of lists: A new matrix with results rounded to 2 decimal places.
     """
-    # 1. Check if div is a number (int or float)
+    # 1. Check if matrix is a list of lists containing only integers or floats
+    msg_type = "matrix must be a matrix (list of lists) of integers/floats"
+    if not isinstance(matrix, list) or len(matrix) == 0:
+        raise TypeError(msg_type)
+    
+    for row in matrix:
+        if not isinstance(row, list) or len(row) == 0:
+            raise TypeError(msg_type)
+        for element in row:
+            if not isinstance(element, (int, float)):
+                raise TypeError(msg_type)
+
+    # 2. Check if all rows have the same size
+    row_len = len(matrix[0])
+    for row in matrix:
+        if len(row) != row_len:
+            raise TypeError("Each row of the matrix must have the same size")
+
+    # 3. Check if div is a valid number
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
 
-    # 2. Check if div is NaN (Not a Number)
-    if div != div:
-        raise TypeError("div must be a number")
-
-    # 3. Check for division by zero
+    # 4. Check if div is not zero
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    # 4. Validate matrix structure and elements
-    if not isinstance(matrix, list) or len(matrix) == 0:
-        raise TypeError(
-            "matrix must be a matrix (list of lists) of integers/floats"
-        )
-
-    # Get the size of the first row to compare with others
-    if not isinstance(matrix[0], list):
-        raise TypeError(
-            "matrix must be a matrix (list of lists) of integers/floats"
-        )
-    row_size = len(matrix[0])
-
-    new_matrix = []
-    for row in matrix:
-        if not isinstance(row, list):
-            raise TypeError(
-                "matrix must be a matrix (list of lists) of integers/floats"
-            )
-        if len(row) != row_size:
-            raise TypeError("Each row of the matrix must have the same size")
-
-        new_row = []
-        for element in row:
-            # Check if elements are int/float and not NaN/Inf
-            if not isinstance(element, (int, float)) or element != element:
-                raise TypeError(
-                    "matrix must be a matrix (list of lists) of "
-                    "integers/floats"
-                )
-            if element == float("inf") or element == float("-inf"):
-                raise TypeError(
-                    "matrix must be a matrix (list of lists) of "
-                    "integers/floats"
-                )
-
-            # Perform division and round to 2 decimal places
-            # Note: Division by float('inf') will safely result in 0.0
-            new_row.append(round(element / div, 2))
-
-        new_matrix.append(new_row)
-
-    return new_matrix
+    # 5. Perform the division and round to 2 decimal places
+    return [[round(item / div, 2) for item in row] for row in matrix]
