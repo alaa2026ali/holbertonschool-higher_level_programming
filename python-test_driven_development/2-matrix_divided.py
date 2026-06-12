@@ -47,5 +47,5 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    # 5. Return new matrix with elements divided and rounded to 2 decimal places
+    # 5. Return new matrix with elements divided and rounded safely
     return [[round(item / div, 2) for item in row] for row in matrix]
