@@ -1,20 +1,37 @@
+The ``3-say_my_name`` module
+============================
+
+Using ``say_my_name``
+---------------------
+
 >>> say_my_name = __import__('3-say_my_name').say_my_name
 
+Test passing both first and last name:
 >>> say_my_name("John", "Smith")
 My name is John Smith
 
->>> say_my_name("Walter", "White")
-My name is Walter White
-
+Test passing only first name:
 >>> say_my_name("Bob")
-My name is Bob
+My name is Bob 
 
+Test passing empty strings:
+>>> say_my_name("", "")
+My name is  
+
+Test passing first name as an integer (TypeError):
 >>> say_my_name(12, "White")
 Traceback (most recent call last):
-...
+    ...
 TypeError: first_name must be a string
 
->>> say_my_name("John", 98)
+Test passing last name as a list (TypeError):
+>>> say_my_name("Walter", ["White"])
 Traceback (most recent call last):
-...
+    ...
 TypeError: last_name must be a string
+
+Test passing no arguments (TypeError):
+>>> say_my_name()
+Traceback (most recent call last):
+    ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
