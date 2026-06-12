@@ -4,7 +4,7 @@ The ``2-matrix_divided`` module
 Using ``matrix_divided``
 ------------------------
 
->>> matrix_divided = __import__('matrix_divided_5').matrix_divided
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 Test present: matrix= List of Lists of integers / div= integer
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
@@ -29,7 +29,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 Test present: matrix= List containing elements that are strings
 >>> matrix_divided([[1, "a"], [3, 4]], 2)
-Traceback (with most recent call last):
+Traceback (most recent call last):
     ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
