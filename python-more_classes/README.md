@@ -48,7 +48,8 @@ By the end of this project, you should be able to explain:
 - The first line of all files must be:
 
 ```python
-#!/usr/bin/python3Code must follow pycodestyle (version 2.7.*)
+#!/usr/bin/python3
+Code must follow pycodestyle (version 2.7.*)
 Every module must contain documentation
 Every class must contain documentation
 Every function and method must contain documentation
