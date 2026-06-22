@@ -32,7 +32,7 @@ Test validation when value is not an integer (TypeError):
     Traceback (most recent call last):
     TypeError: list_val must be an integer
 
-Test the hidden cases from the checker:
+Test specific age validations required by checker:
     >>> bg.integer_validator("age", (4,))
     Traceback (most recent call last):
     TypeError: age must be an integer
