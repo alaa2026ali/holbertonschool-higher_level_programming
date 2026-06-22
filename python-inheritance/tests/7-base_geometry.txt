@@ -1,9 +1,7 @@
-This is the documentation for the BaseGeometry module.
+BaseGeometry class validation tests.
 
-The BaseGeometry class contains an area method and an integer_validator method.
-The method integer_validator validates if a value is an integer or not.
-
-Examples of using integer_validator with age:
-We can test integer_validator with age or width or distance.
-If value is not an integer it will raise a TypeError.
-If value is less than or equal to 0 it will raise a ValueError.
+The method named integer_validator checks the inputs.
+We evaluate different names like age and weight here.
+The value must be a positive integer always.
+Positive integers will be accepted without problems.
+Negative integers will raise mistakes.
