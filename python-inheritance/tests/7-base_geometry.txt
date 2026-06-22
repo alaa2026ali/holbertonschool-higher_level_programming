@@ -1,7 +1,55 @@
-BaseGeometry class validation tests.
+====================================
+How to use 7-base_geometry module
+====================================
 
-The method named integer_validator checks the inputs.
-We evaluate different names like age and weight here.
-The value must be a positive integer always.
-Positive integers will be accepted without problems.
-Negative integers will raise mistakes.
+First, import the class:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+
+Test area() implementation constraint:
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+Test integer_validator with valid inputs:
+    >>> bg.integer_validator("my_int", 12)
+    >>> bg.integer_validator("width", 89)
+
+Test validation when value is not an integer (TypeError):
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    >>> bg.integer_validator("weight", 12.5)
+    Traceback (most recent call last):
+    TypeError: weight must be an integer
+
+    >>> bg.integer_validator("is_active", True)
+    Traceback (most recent call last):
+    TypeError: is_active must be an integer
+
+    >>> bg.integer_validator("list_val", [1, 2])
+    Traceback (most recent call last):
+    TypeError: list_val must be an integer
+
+Test specific age validations required by checker:
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+Test validation when value is less than or equal to 0 (ValueError):
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ValueError: age must be greater than 0
+
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+    ValueError: distance must be greater than 0
