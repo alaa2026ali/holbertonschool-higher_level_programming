@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 """
-This module contains the BaseGeometry class with area and validation methods.
-Each class and method must have comprehensive docstring documentation.
+This module contains the BaseGeometry class.
+Provides validation and geometric area base constraints.
 """
 
 
 class BaseGeometry:
-    """A base class for geometry-related objects with validation capabilities."""
+    """A base class for geometry-related operations."""
 
     def area(self):
-        """Raises an Exception indicating that the method is not implemented."""
+        """Raises an Exception indicating area is not implemented."""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Validates that a given value is a strictly positive integer.
+        """Validates that value is a strictly positive integer.
 
         Args:
             name (str): The name associated with the value.
