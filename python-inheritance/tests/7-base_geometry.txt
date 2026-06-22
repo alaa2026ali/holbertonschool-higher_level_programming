@@ -1,12 +1,11 @@
-====================================
-How to use 7-base_geometry module
-====================================
+The BaseGeometry Module
+======================
 
-First, import the class:
+Import the class:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
-Test area() implementation constraint:
+Test area:
     >>> bg.area()
     Traceback (most recent call last):
     Exception: area() is not implemented
@@ -15,7 +14,7 @@ Test integer_validator with valid inputs:
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
 
-Test validation when value is not an integer (TypeError):
+Test validation when value is not an integer:
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
     TypeError: name must be an integer
@@ -32,7 +31,7 @@ Test validation when value is not an integer (TypeError):
     Traceback (most recent call last):
     TypeError: list_val must be an integer
 
-Test specific age validations required by checker:
+Test age specific checker constraints:
     >>> bg.integer_validator("age", (4,))
     Traceback (most recent call last):
     TypeError: age must be an integer
@@ -45,7 +44,7 @@ Test specific age validations required by checker:
     Traceback (most recent call last):
     TypeError: age must be an integer
 
-Test validation when value is less than or equal to 0 (ValueError):
+Test validation when value is less than or equal to 0:
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
     ValueError: age must be greater than 0
