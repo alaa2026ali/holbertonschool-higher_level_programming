@@ -1,23 +1,24 @@
 #!/usr/bin/env python3
-"""Shapes module using duck typing."""
-
+"""Shapes, interfaces, and duck typing."""
 from abc import ABC, abstractmethod
 import math
 
 
 class Shape(ABC):
-    """Abstract Shape class."""
+    """Abstract shape blueprint."""
 
     @abstractmethod
     def area(self):
+        """Return the area of the shape."""
         pass
 
     @abstractmethod
     def perimeter(self):
+        """Return the perimeter of the shape."""
         pass
 
 
-class Circle:
+class Circle(Shape):
     """Circle shape."""
 
     def __init__(self, radius):
@@ -30,7 +31,7 @@ class Circle:
         return 2 * math.pi * self.radius
 
 
-class Rectangle:
+class Rectangle(Shape):
     """Rectangle shape."""
 
     def __init__(self, width, height):
