@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+"""Module for shape classes using ABC and duck typing"""
 from abc import ABC, abstractmethod
-from math import pi
+import math
 
 class Shape(ABC):
+    """Abstract base class for shapes"""
     @abstractmethod
     def area(self):
         pass
@@ -12,26 +14,29 @@ class Shape(ABC):
         pass
 
 class Circle(Shape):
+    """Circle shape"""
     def __init__(self, radius):
         self.radius = radius
 
     def area(self):
-        return pi * self.radius ** 2
+        return math.pi * self.radius ** 2
 
     def perimeter(self):
-        return 2 * pi * self.radius
+        return 2 * math.pi * self.radius
 
 class Rectangle(Shape):
+    """Rectangle shape"""
     def __init__(self, width, height):
         self.width = width
         self.height = height
 
     def area(self):
-        return float(self.width * self.height)
+        return self.width * self.height
 
     def perimeter(self):
-        return float(2 * (self.width + self.height))
+        return 2 * (self.width + self.height)
 
 def shape_info(shape):
+    """Prints area and perimeter of a shape"""
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
