@@ -16,13 +16,12 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    query = (
+    cur.execute(
         "SELECT * FROM states "
-        "WHERE name = '{}' "
-        "ORDER BY states.id ASC"
-    ).format(sys.argv[4])
-
-    cur.execute(query)
+        "WHERE BINARY name = %s "
+        "ORDER BY states.id ASC",
+        (sys.argv[4],)
+    )
 
     for row in cur.fetchall():
         print(row)
