@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Filter states by user input."""
+"""Displays all values in the states table where name matches the argument."""
 
 import MySQLdb
 import sys
@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     cur.execute(
         "SELECT * FROM states "
-        "WHERE BINARY name = '{}' "
+        "WHERE name = '{}' "
         "ORDER BY states.id ASC".format(sys.argv[4])
     )
 
