@@ -1,38 +1,19 @@
 #!/usr/bin/python3
-"""Lists all cities of a state."""
+"""Lists states"""
 
 import MySQLdb
-import sys
-
+from sys import argv
 
 if __name__ == "__main__":
-
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3]
-    )
-
-    cursor = db.cursor()
-
-    query = """
-    SELECT cities.name
-    FROM cities
-    JOIN states ON cities.state_id = states.id
-    WHERE states.name = %s
-    ORDER BY cities.id ASC
-    """
-
-    cursor.execute(query, (sys.argv[4],))
-
-    cities = []
-
-    for row in cursor.fetchall():
-        cities.append(row[0])
-
-    print(", ".join(cities))
-
-    cursor.close()
-    db.close()
+    conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                           passwd=argv[2], db=argv[3], charset="utf8")
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT cities.name FROM cities
+        JOIN states ON cities.state_id = states.id
+        WHERE states.name = %s
+        ORDER BY cities.id ASC
+        """, (argv[4], ))
+    print(", ".join(map(lambda x: x[0], cur.fetchall())))
+    cur.close()
+    conn.close()
