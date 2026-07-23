@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Displays all values in the states table where name matches the argument."""
+"""Filter states by user input."""
 
 import MySQLdb
 import sys
@@ -16,13 +16,11 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    query = (
+    cur.execute(
         "SELECT * FROM states "
         "WHERE name = '{}' "
-        "ORDER BY id ASC"
-    ).format(sys.argv[4])
-
-    cur.execute(query)
+        "ORDER BY states.id ASC".format(sys.argv[4])
+    )
 
     for row in cur.fetchall():
         print(row)
