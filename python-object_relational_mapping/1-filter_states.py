@@ -25,9 +25,3 @@ for row in cur.fetchall():
 
 cur.close()
 db.close()
-)
-    for row in cur.fetchall():
-        print(row)
-
-    cur.close()
-    db.close()
