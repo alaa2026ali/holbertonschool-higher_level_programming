@@ -18,8 +18,8 @@ if __name__ == "__main__":
 
     query = (
         "SELECT * FROM states "
-        "WHERE BINARY name = '{}' "
-        "ORDER BY states.id ASC"
+        "WHERE name = '{}' "
+        "ORDER BY id ASC"
     ).format(sys.argv[4])
 
     cur.execute(query)
