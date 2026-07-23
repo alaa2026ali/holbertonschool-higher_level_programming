@@ -18,8 +18,8 @@ if __name__ == "__main__":
 
     cur.execute(
         "SELECT * FROM states "
-        "WHERE name = '{}' "
-        "ORDER BY states.id ASC".format(sys.argv[4])
+        WHERE name = '{}'
+        ORDER BY states.id ASC".format(sys.argv[4])
     )
 
     for row in cur.fetchall():
