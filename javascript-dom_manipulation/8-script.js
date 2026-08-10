@@ -1,3 +1,4 @@
+#!/usr/bin/node
 window.addEventListener('DOMContentLoaded', function () {
   const hello = document.querySelector('#hello');
 
