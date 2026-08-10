@@ -10,7 +10,9 @@ app = Flask(__name__)
 def items():
     with open('items.json', 'r') as file:
         data = json.load(file)
-return render_template('items.html', items=data.get('items', []))
+
+    return render_template('items.html', items=data.get('items', []))
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
