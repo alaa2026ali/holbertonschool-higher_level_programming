@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const header = document.querySelector('header');
 const toggle = document.querySelector('#toggle_header');
 
