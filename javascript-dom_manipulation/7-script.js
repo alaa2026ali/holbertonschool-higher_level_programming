@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const listMovies = document.querySelector('#list_movies');
 
 fetch('https://swapi-api.hbtn.io/api/films/?format=json')
